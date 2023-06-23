@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="WindowsAPICodePack" Version="7.0.4" />
+    <PackageReference Include="YoutubeDLSharp" Version="0.4.3" />
   </ItemGroup>
 
 </Project>

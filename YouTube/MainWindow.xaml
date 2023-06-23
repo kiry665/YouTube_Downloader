@@ -5,29 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YouTube"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="396" Width="685">
     <Grid>
-        <Button x:Name="button_download" Content="Скачать" HorizontalAlignment="Left" Margin="23,126,0,0" VerticalAlignment="Top" Height="20" Width="47" Click="button1_Click"/>
-        <ComboBox x:Name="comboBox_quality" HorizontalAlignment="Left" Margin="23,72,0,0" VerticalAlignment="Top" Width="120">
-            <TextBlock>144p</TextBlock>
-            <TextBlock>240p</TextBlock>
-            <TextBlock>360p</TextBlock>
-            <TextBlock>480p</TextBlock>
-            <TextBlock>720p</TextBlock>
-            <TextBlock>1080p</TextBlock>
-        </ComboBox>
-        <TextBox x:Name="textBox_url" HorizontalAlignment="Left" Margin="22,22,0,0" TextWrapping="Wrap" Text="https://youtube.com/playlist?list=PLnVOQky5E72ed9DG9oDPy7_BQMJ4OSGDD" VerticalAlignment="Top" Width="600" Height="18"/>
-        <Button x:Name="button_clear" Content="❌" HorizontalAlignment="Left" Margin="627,21,0,0" VerticalAlignment="Top" Foreground="Red" Click="button_clear_Click"/>
-        <ComboBox x:Name="comboBox_extension" HorizontalAlignment="Left" Margin="23,99,0,0" VerticalAlignment="Top" Width="120">
-            <TextBlock>mp4</TextBlock>
-            <TextBlock>webm</TextBlock>
-        </ComboBox>
-        <CheckBox x:Name="checkBox_range" Content="Диапозон видео" HorizontalAlignment="Left" Margin="151,76,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_start" HorizontalAlignment="Left" Margin="289,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="44" Foreground="Black" Height="18"/>
-        <Label Content="C" HorizontalAlignment="Left" Margin="267,70,0,0" VerticalAlignment="Top" Foreground="Black" Background="White"/>
-        <TextBox x:Name="textBox_stop" HorizontalAlignment="Left" Margin="369,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="44" Foreground="Black" Height="18"/>
-        <Label Content="По" HorizontalAlignment="Left" Margin="338,70,0,0" VerticalAlignment="Top" Foreground="Black"/>
-        <TextBox x:Name="textBox_folder" HorizontalAlignment="Left" Margin="22,47,0,0" TextWrapping="Wrap" Text="Путь к папке" VerticalAlignment="Top" Width="600" Height="18" IsEnabled="False" BorderBrush="#FFABADB3"/>
-        <Button x:Name="button_folder" Content="📁" HorizontalAlignment="Left" Margin="627,46,0,0" VerticalAlignment="Top" Foreground="Black" Click="button_folder_Click"/>
+        <GroupBox Header="Плейлист" Margin="10,243,0,0" HorizontalAlignment="Left" Width="274" Height="111" VerticalAlignment="Top">
+            <Grid>
+                <ComboBox x:Name="comboBox_quality" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,61,0,0" Height="22">
+                    <TextBlock>144p</TextBlock>
+                    <TextBlock>240p</TextBlock>
+                    <TextBlock>360p</TextBlock>
+                    <TextBlock>480p</TextBlock>
+                    <TextBlock>720p</TextBlock>
+                    <TextBlock>1080p</TextBlock>
+                </ComboBox>
+                <ComboBox x:Name="comboBox_extension" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="120" Margin="135,61,0,0" Height="22" >
+                    <TextBlock><Run Text="mp4"/></TextBlock>
+                    <TextBlock><Run Text="webm"/></TextBlock>
+                </ComboBox>
+                <CheckBox x:Name="checkBox_range" Grid.Column="0" Content="Диапозон видео" HorizontalAlignment="Left" VerticalAlignment="Top" Height="15" Width="111" Margin="10,10,0,0"/>
+                <TextBox x:Name="textBox_start" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="44" Foreground="Black" Height="18" Margin="32,34,0,0"/>
+                <Label Content="C" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" Background="White" Height="26" Margin="10,30,0,0" Width="17"/>
+                <TextBox x:Name="textBox_stop" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="44" Foreground="Black" Height="18" Margin="112,34,0,0"/>
+                <Label Content="По"  HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" Height="26" Margin="81,30,0,0" Width="26"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Видео" Margin="10,128,10,0" Height="111" VerticalAlignment="Top">
+            <ListBox x:Name="listBox_formats" ScrollViewer.CanContentScroll="True" SelectionChanged="listBox_formats_SelectionChanged"/>
+        </GroupBox>
+
+        <GroupBox Header="Настройки" Margin="10,10,10,0" Height="112" VerticalAlignment="Top">
+            <Grid>
+                <TextBox x:Name="textBox_url" HorizontalAlignment="Left" TextWrapping="Wrap" Text="https://www.youtube.com/watch?v=nGO6AZof9Cg" Width="600" Margin="10,0,0,0" Height="18" VerticalAlignment="Top"/>
+                <TextBox x:Name="textBox_folder" TextWrapping="Wrap" Text="Путь к папке" Width="600" Height="18" IsEnabled="False" BorderBrush="#FFABADB3" Margin="10,23,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <Button x:Name="button_clear" Content="❌" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red" Click="button_clear_Click" Height="20" Margin="615,-2,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20"/>
+                <Button x:Name="button_folder" Content="📁" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Black" Click="button_folder_Click" Height="20" Margin="615,21,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20"/>
+                <RadioButton Name="radioButton_video" GroupName="Type" Content="Видео" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True" Margin="10,46,0,0" />
+                <RadioButton Name="radioButton_playlist" GroupName="Type" Content="Плейлист" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,46,0,0"/>
+                <Button x:Name="button_download" Content="Скачать" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="48" Click="button_download_Click" Margin="10,66,0,0"/>
+                <Button x:Name="button_info" Content="Инфо" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="48" Click="buttonInfo_Click" Margin="63,66,0,0"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
