@@ -16,8 +16,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using YoutubeDLSharp;
-using static System.Windows.Forms.DataFormats;
 
 namespace YouTube
 {
@@ -80,7 +78,7 @@ namespace YouTube
                     if (listBox_formats.SelectedItem != null)
                     {
                         string format = listBox_formats.SelectedItem.ToString().Split().First();
-                        return "yt-dlp.exe -f \"(" + format + ")\" -P " + folder + " " + url;
+                        return "yt-dlp.exe -f \"(" + format + ")\" -P  \"" + folder + "\" " + url;
                     }
                     else
                     {
@@ -102,7 +100,7 @@ namespace YouTube
                         {
                             if (int.TryParse(stop, out var res_stop) || stop == string.Empty)
                             {
-                                return "yt-dlp.exe -f \"bestvideo[height=" + quality + "][ext=" + extension + "]\" -I \"" + start + ":" + stop + "\" " + "-P " + folder + " " + url;
+                                return "yt-dlp.exe -f \"bestvideo[height=" + quality + "][ext=" + extension + "]\" -I \"" + start + ":" + stop + "\" " + "-P \"" + folder + "\" " + url;
                             }
                             else return string.Empty;
                         }
@@ -110,7 +108,7 @@ namespace YouTube
                     }
                     else
                     {
-                        return "yt-dlp.exe -f \"bestvideo[height=" + quality + "][ext=" + extension + "]\" " + "-P " + folder + " " + url;
+                        return "yt-dlp.exe -f \"bestvideo[height=" + quality + "][ext=" + extension + "]\" " + "-P \"" + folder + "\" " + url;
                     }
                 }
                 
@@ -153,8 +151,12 @@ namespace YouTube
             getInfo();
         }
 
-        private void listBox_formats_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void textBox_url_Click(object sender, MouseButtonEventArgs e)
         {
+            if(textBox_url.Text =="Ссылка на видео")
+            {
+                textBox_url.Text = "";
+            }
 
         }
     }

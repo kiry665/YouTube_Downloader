@@ -4,8 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YouTube"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="396" Width="685">
+        
+        Title="YouTube_Downloader" Height="396" Width="685" Icon="/icon.png">
     <Grid>
         <GroupBox Header="Плейлист" Margin="10,243,0,0" HorizontalAlignment="Left" Width="274" Height="111" VerticalAlignment="Top">
             <Grid>
@@ -30,15 +33,15 @@
         </GroupBox>
 
         <GroupBox Header="Видео" Margin="10,128,10,0" Height="111" VerticalAlignment="Top">
-            <ListBox x:Name="listBox_formats" ScrollViewer.CanContentScroll="True" SelectionChanged="listBox_formats_SelectionChanged"/>
+            <ListBox x:Name="listBox_formats" ScrollViewer.CanContentScroll="True"/>
         </GroupBox>
 
         <GroupBox Header="Настройки" Margin="10,10,10,0" Height="112" VerticalAlignment="Top">
             <Grid>
-                <TextBox x:Name="textBox_url" HorizontalAlignment="Left" TextWrapping="Wrap" Text="https://www.youtube.com/watch?v=nGO6AZof9Cg" Width="600" Margin="10,0,0,0" Height="18" VerticalAlignment="Top"/>
-                <TextBox x:Name="textBox_folder" TextWrapping="Wrap" Text="Путь к папке" Width="600" Height="18" IsEnabled="False" BorderBrush="#FFABADB3" Margin="10,23,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                <Button x:Name="button_clear" Content="❌" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red" Click="button_clear_Click" Height="20" Margin="615,-2,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20"/>
-                <Button x:Name="button_folder" Content="📁" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Black" Click="button_folder_Click" Height="20" Margin="615,21,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20"/>
+                <TextBox x:Name="textBox_url" TextWrapping="Wrap" Text="Ссылка на видео" Margin="10,0,43,0" Height="18" VerticalAlignment="Top" PreviewMouseDown="textBox_url_Click"/>
+                <TextBox x:Name="textBox_folder" TextWrapping="Wrap" Text="Путь к папке" Height="18" IsEnabled="False" BorderBrush="#FFABADB3" Margin="10,23,43,0" VerticalAlignment="Top"/>
+                <Button x:Name="button_clear" Content="❌" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red" Click="button_clear_Click" Height="20" Margin="0,-2,18,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20"/>
+                <Button x:Name="button_folder" Content="📁" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Black" Click="button_folder_Click" Height="20" Margin="0,21,18,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20"/>
                 <RadioButton Name="radioButton_video" GroupName="Type" Content="Видео" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True" Margin="10,46,0,0" />
                 <RadioButton Name="radioButton_playlist" GroupName="Type" Content="Плейлист" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,46,0,0"/>
                 <Button x:Name="button_download" Content="Скачать" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="48" Click="button_download_Click" Margin="10,66,0,0"/>
