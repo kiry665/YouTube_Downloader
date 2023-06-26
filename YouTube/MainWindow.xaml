@@ -46,6 +46,7 @@
                 <RadioButton Name="radioButton_playlist" GroupName="Type" Content="Плейлист" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,46,0,0"/>
                 <Button x:Name="button_download" Content="Скачать" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="48" Click="button_download_Click" Margin="10,66,0,0"/>
                 <Button x:Name="button_info" Content="Инфо" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="48" Click="buttonInfo_Click" Margin="63,66,0,0"/>
+                <Button x:Name="button_Open" Content="Открыть папку" HorizontalAlignment="Left" Margin="116,66,0,0" VerticalAlignment="Top" Click="button_Open_Click"/>
             </Grid>
         </GroupBox>
     </Grid>

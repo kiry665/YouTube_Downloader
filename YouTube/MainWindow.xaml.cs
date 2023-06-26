@@ -41,7 +41,6 @@ namespace YouTube
             {
                 Process.Start("CMD.exe", "/K " + cmd);
             }
-            
         }
 
         private void button_clear_Click(object sender, RoutedEventArgs e)
@@ -158,6 +157,11 @@ namespace YouTube
                 textBox_url.Text = "";
             }
 
+        }
+
+        private void button_Open_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("explorer.exe", @"" + textBox_folder.Text);
         }
     }
 }
